@@ -18,17 +18,17 @@ function App() {
     setTodoList([...todolist,task]);
   }
   const deleteTask=(id)=>{
-    setTodoList(todolist.filter((task)=> id!==task.id));
+    setTodoList(todolist.filter((task)=> task.id!==id));
   }
 
   const completeTask=(id)=>{
     setTodoList(
       todolist.map((task)=>{
-        if(id===task.id){
+        if(task.id===id){
           return {...task,completed:true};
         }
         else{
-          return{task};
+          return task;
         }
       })
       );
@@ -37,7 +37,6 @@ function App() {
   return (
     <div className="App">
     <div class="todolist-app">
-    <div class="todolist-">
     <input type="text" onChange={inputHandle}/>
     <button onClick={addNewTask}>ADD TASK</button>
     </div>
